@@ -121,6 +121,16 @@ export const products: Product[] = [
     unit: "tablette 100g",
     price: 8.50
   }
+  {
+    id: "13",
+    name: "truc",
+    description: "Tablette de chocolat noir d'exception, cacao grand cru d'Équateur. Notes fruitées et légèrement boisées.",
+    category: "Confiserie",
+    image: "/images/miam.jpg",
+    origin: "Équateur",
+    unit: "tablette 100g",
+    price: 805.50
+  }
 ]
 
 export const categories = [...new Set(products.map(p => p.category))]

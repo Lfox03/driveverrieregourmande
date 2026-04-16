@@ -36,18 +36,13 @@ export function ProductCard({ product }: ProductCardProps) {
     <Dialog>
       <div className="group bg-card rounded-xl overflow-hidden border border-border hover:border-primary/30 transition-all hover:shadow-lg">
         <DialogTrigger asChild>
-          <button className="w-full text-left">
+          <button className="w-full text-left cursor-pointer">
             <div className="aspect-[4/3] overflow-hidden bg-muted relative">
               <img
                 src={product.image}
                 alt={product.name}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute top-3 right-3 bg-card/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm">
-                <span className="font-semibold text-primary text-sm">
-                  {formatPrice(product.price)}
-                </span>
-              </div>
               {quantityInBasket > 0 && (
                 <div className="absolute top-3 left-3 bg-primary text-primary-foreground px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1.5">
                   <ShoppingBasket className="w-3.5 h-3.5" />
@@ -123,17 +118,12 @@ function ProductDetail({ product }: { product: Product }) {
 
   return (
     <div className="grid sm:grid-cols-2 gap-6">
-      <div className="aspect-square rounded-lg overflow-hidden bg-muted relative">
+      <div className="aspect-square rounded-lg overflow-hidden bg-muted">
         <img
           src={product.image}
           alt={product.name}
           className="w-full h-full object-cover"
         />
-        <div className="absolute top-4 right-4 bg-card/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
-          <span className="font-bold text-primary text-lg">
-            {formatPrice(product.price)}
-          </span>
-        </div>
       </div>
       <div className="flex flex-col">
         <Badge variant="secondary" className="w-fit text-xs mb-2">

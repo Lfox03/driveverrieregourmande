@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { ShoppingBasket, Menu, X, ExternalLink, Phone } from "lucide-react"
 import { useState } from "react"
 import { useBasket } from "@/lib/basket-context"
@@ -25,15 +26,22 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-primary-foreground font-serif text-lg sm:text-xl font-bold">LV</span>
+          <Link href="/" className="flex items-center gap-3">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden flex-shrink-0 border border-border">
+              <Image
+                src="/images/logo.jpg"
+                alt="La Verrière Gourmande logo"
+                width={48}
+                height={48}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
             <div className="hidden sm:block">
               <h1 className="font-serif text-lg md:text-xl font-semibold text-foreground leading-tight">
-                La Verrière Gourmande
+                La Verriere Gourmande
               </h1>
-              <p className="text-xs text-muted-foreground">Produits Agricoles de Qualité</p>
+              <p className="text-xs text-muted-foreground">Produits Agricoles de Qualite</p>
             </div>
           </Link>
 
@@ -158,48 +166,50 @@ function BasketSheet() {
         </Button>
       </div>
 
-      <div className="flex-1 overflow-auto space-y-4">
+      <div className="flex-1 overflow-auto space-y-3 pr-1">
         {items.map((item) => (
           <div key={item.id} className="flex gap-3 p-3 bg-muted/50 rounded-lg">
-            <div className="w-16 h-16 rounded-md bg-secondary overflow-hidden flex-shrink-0">
+            <div className="w-14 h-14 rounded-md bg-secondary overflow-hidden flex-shrink-0">
               <img 
                 src={item.image} 
                 alt={item.name}
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="flex-1 min-w-0">
-              <h3 className="font-medium text-sm truncate">{item.name}</h3>
-              <div className="flex items-center justify-between">
-                <p className="text-xs text-muted-foreground">{item.unit}</p>
-                <p className="text-sm font-semibold text-primary">{formatPrice(item.price)}</p>
-              </div>
-              <div className="flex items-center gap-2 mt-2">
-                <Button 
-                  variant="outline" 
-                  size="icon" 
-                  className="h-7 w-7"
-                  onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                >
-                  -
-                </Button>
-                <span className="text-sm font-medium w-6 text-center">{item.quantity}</span>
-                <Button 
-                  variant="outline" 
-                  size="icon" 
-                  className="h-7 w-7"
-                  onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                >
-                  +
-                </Button>
+            <div className="flex-1 min-w-0 flex flex-col">
+              <div className="flex items-start justify-between gap-2">
+                <h3 className="font-medium text-sm leading-tight line-clamp-2">{item.name}</h3>
                 <Button 
                   variant="ghost" 
-                  size="sm"
-                  className="ml-auto text-muted-foreground hover:text-destructive"
+                  size="icon"
+                  className="h-6 w-6 flex-shrink-0 text-muted-foreground hover:text-destructive"
                   onClick={() => removeItem(item.id)}
                 >
-                  <X className="w-4 h-4" />
+                  <X className="w-3.5 h-3.5" />
                 </Button>
+              </div>
+              <p className="text-xs text-muted-foreground mt-0.5">{item.unit}</p>
+              <div className="flex items-center justify-between mt-auto pt-2">
+                <div className="flex items-center gap-1.5">
+                  <Button 
+                    variant="outline" 
+                    size="icon" 
+                    className="h-6 w-6 text-xs"
+                    onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                  >
+                    -
+                  </Button>
+                  <span className="text-sm font-medium w-5 text-center">{item.quantity}</span>
+                  <Button 
+                    variant="outline" 
+                    size="icon" 
+                    className="h-6 w-6 text-xs"
+                    onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                  >
+                    +
+                  </Button>
+                </div>
+                <p className="text-sm font-semibold text-primary">{formatPrice(item.price * item.quantity)}</p>
               </div>
             </div>
           </div>

@@ -123,4 +123,24 @@
   body {
     @apply bg-background text-foreground;
   }
+  button,
+  [role="button"],
+  a,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"],
+  select,
+  [tabindex]:not([tabindex="-1"]) {
+    cursor: pointer;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  textarea {
+    cursor: text;
+  }
 }

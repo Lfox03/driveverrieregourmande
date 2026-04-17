@@ -13,25 +13,16 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: 'La Verrière Gourmande | Produits Agricoles',
+  title: 'Drive La Verrière Gourmande | Produits Agricoles',
   description: 'Découvrez notre sélection de produits agricoles de qualité. Vitrine de présentation - Commandes par téléphone uniquement.',
   generator: 'v0.app',
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/favicon.ico',
+        type: 'image/ico',
       },
     ],
-    apple: '/apple-icon.png',
   },
 }
 

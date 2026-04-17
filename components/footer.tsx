@@ -80,7 +80,7 @@ export function Footer() {
           <div className="flex flex-col gap-4">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
               <p className="text-sm text-background/50">
-                © {new Date().getFullYear()} La Verrière Gourmande. Vitrine de présentation.
+                Drive Verrière Gourmande. Vitrine de présentation.
               </p>
               <p className="text-sm text-background/50">
                 Commandes par téléphone uniquement

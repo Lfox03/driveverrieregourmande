@@ -77,12 +77,17 @@ export function Footer() {
         </div>
 
         <div className="border-t border-background/10 mt-12 pt-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-background/50">
-              © {new Date().getFullYear()} La Verrière Gourmande. Vitrine de présentation.
-            </p>
-            <p className="text-sm text-background/50">
-              Commandes par téléphone uniquement
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+              <p className="text-sm text-background/50">
+                © {new Date().getFullYear()} La Verrière Gourmande. Vitrine de présentation.
+              </p>
+              <p className="text-sm text-background/50">
+                Commandes par téléphone uniquement
+              </p>
+            </div>
+            <p className="text-xs text-background/40 italic">
+              Ce site n&apos;est pas affilié avec La Verrière Gourmande ni avec l&apos;ISNAB.
             </p>
           </div>
         </div>
